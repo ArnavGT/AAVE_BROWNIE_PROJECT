@@ -1,0 +1,41 @@
+dotenv: .env
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@0.2.2
+  - OpenZeppelin/openzeppelin-contracts@4.3.2
+  - aave/protocol-v2@1.0.1
+compiler:
+  solc:
+    remappings:
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.2"
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.3.2"
+      - "@aave=aave/protocol-v2@1.0.1"
+    version: null
+networks:
+  default: mainnet-fork
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+    dai_address: '0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735'
+    weth_token: '0xc778417E063141139Fce010982780140Aa0cD5Ab'
+  mainnet-fork:
+    eth_usd: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    dai_eth: '0x773616e4d11a78f511299002da57a0a94577f1f4'
+    verify: False
+    weth_token: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
+    LendingPoolAddressesProvider: '0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5'
+    dai_address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+  kovan:
+    weth_token: '0xd0a1e359811322d97991e03f863a0c30c2cf029c'
+    LendingPoolAddressesProvider: '0x88757f2f99175387aB4C6a4b3067c77A695b0349'
+    dai_eth: '0x22B58f1EbEDfCA50feF632bD73368b2FdA96D541'
+    dai_address: '0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa'
+  goerli: 
+    LendingPoolAddressesProvider: '0xc4dCB5126a3AfEd129BC3668Ea19285A9f56D15D'
+    weth_token: '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6'
+    dai_address: '0xdc31ee1784292379fbb2964b3b9c4124d8f89c60'
+wallets:
+  from_key: ${PRIVATE_KEY}
